@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+	//code
+	int t;
+	cin>>t;
+	
+	while(t--) {
+	    
+	    string str;
+	    cin>>str;
+	    
+	    int x = 0 , y = 0;
+	    char direction = 'n';
+	    
+	    for(int i=0 ; i<str.size() ; i++) {
+	        if(str[i] == 'G') {
+	            if(direction == 'n') {
+	                y++;
+	            }
+	            else if(direction == 's') {
+	                y--;
+	            }
+	            else if(direction == 'e') {
+	                x++;
+	            }
+	            else if(direction == 'w') {
+	                x--;
+	            }
+	        }
+	        else if(str[i] == 'R') {
+	            if(direction == 'n') {
+	                direction = 'e';
+	            }
+	            else if(direction == 's') {
+	                direction = 'w';
+	            }
+	            else if(direction == 'e') {
+	                direction = 's';
+	            }
+	            else if(direction == 'w') {
+	                direction = 'n';
+	            }
+	        }
+	        else if(str[i] == 'L') {
+	            if(direction == 'n') {
+	                direction = 'w';
+	            }
+	            else if(direction == 's') {
+	                direction = 'e';
+	            }
+	            else if(direction == 'e') {
+	                direction = 'n';
+	            }
+	            else if(direction == 'w') {
+	                direction = 's';
+	            }
+	        } 
+	    }
+	    if(x == 0 && y == 0) {
+	        cout<<"Circular"<<endl;
+	    }
+	    else {
+	        cout<<"Not Circular"<<endl;
+	    }
+	}
+	
+	return 0;
+}
+	    
+	    
